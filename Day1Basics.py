@@ -1,0 +1,6 @@
+print("NAMASKAR 🛕🙏🏻, ASSALAM ALAIKUM🤲🏻🕌 , AMEN✝️⛪")
+print("Jashwanth started learning python programming and its day 1")
+print("why jashwanth is learning python programming ? Cause , python is very widely used in ML and Data field!")
+print("And to get good job , decent salary , to stay with family , to get a good wife and to get a good life , to treat wife like queen.👸🏻😇💖")
+print("Success is god given , so be humble. stay kind and help everyone.🫱🏻‍🫲🏻😇")   
+print(27+6+2007)    
