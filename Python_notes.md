@@ -1625,160 +1625,430 @@ for character in word:
 
 This pattern is useful for many counting problems.
 
----
+# Day 7 — Tuples
 
-# 🧠 Quick Revision — Day 1 to Day 6
+## 1. Tuple
 
-## Day 1
+### Definition
 
-* Python
-* `print()`
-* Strings
-* Comments
-* Case sensitivity
-* Functions
-* Python interpreter
+A tuple is an ordered collection of multiple values.
 
-## Day 2
+Tuples are **immutable**, meaning their values cannot be changed after creation.
 
-* Variables
-* Reassignment
-* `int`
-* `float`
-* `str`
-* `bool`
-* `type()`
-* Type conversion
-* `int()`
-* `float()`
-* `str()`
-* `bool()`
+### Syntax
 
-## Day 3
+```python
+tuple_name = (item1, item2, item3)
+```
 
-* Conditions
-* Comparison operators
-* `if`
-* `if-else`
-* `if-elif-else`
-* `and`
-* `or`
-* `not`
-* Nested `if`
+### Example
 
-## Day 4
+```python
+skills = ("Python", "SQL", "ML")
 
-* Loops
-* `for`
-* `while`
-* `range()`
-* Start/stop/step
-* Negative step
-* `break`
-* `continue`
-* `%`
-* Accumulator
-* Finding largest value
+print(skills)
+```
 
-## Day 5
+### Output
 
-* Lists
-* Indexing
-* Negative indexing
-* Changing list items
-* `append()`
-* `insert()`
-* `remove()`
-* `pop()`
-* `len()`
-* Looping through lists
-
-## Day 6
-
-* Strings
-* String indexing
-* Negative indexing
-* Slicing
-* `len()`
-* `upper()`
-* `lower()`
-* `strip()`
-* `replace()`
-* `split()`
-* Looping through strings
-* `in`
-* `not in`
-* `startswith()`
-* `endswith()`
-* Case sensitivity
-* Character counting
+```text
+('Python', 'SQL', 'ML')
+```
 
 ---
 
-# ⭐ Important Patterns to Remember
+# 2. Tuple Indexing
 
-### Condition
+### Definition
+
+Indexing is used to access individual items from a tuple.
+
+Python indexing starts from `0`.
+
+### Example
 
 ```python
-if condition:
-    statement
+skills = ("Python", "SQL", "ML")
+
+print(skills[0])
+print(skills[1])
 ```
 
-### For loop
+### Output
 
-```python
-for item in sequence:
-    statement
+```text
+Python
+SQL
 ```
 
-### While loop
+---
 
-```python
-while condition:
-    statement
+# 3. Negative Indexing
+
+### Definition
+
+Negative indexing is used to access items from the end of a tuple.
+
+```text
+-1 → last item
+-2 → second last item
 ```
 
-### List loop
+### Example
 
 ```python
-for item in numbers:
-    print(item)
+skills = ("Python", "SQL", "ML")
+
+print(skills[-1])
+print(skills[-2])
 ```
 
-### String loop
+### Output
 
-```python
-for character in word:
-    print(character)
+```text
+ML
+SQL
 ```
 
-### Counter
+---
+
+# 4. Tuple Immutability
+
+### Definition
+
+Tuples are immutable, meaning their values cannot be changed after creation.
+
+### Example
 
 ```python
+numbers = (10, 20, 30)
+
+numbers[1] = 50
+```
+
+### Output
+
+```text
+TypeError
+```
+
+A tuple does not support changing individual items.
+
+---
+
+# 5. `len()` with Tuples
+
+### Definition
+
+`len()` returns the total number of items in a tuple.
+
+### Syntax
+
+```python
+len(tuple)
+```
+
+### Example
+
+```python
+numbers = (10, 20, 30, 40)
+
+print(len(numbers))
+```
+
+### Output
+
+```text
+4
+```
+
+---
+
+# 6. Looping Through a Tuple
+
+### Definition
+
+A loop can be used to access each item in a tuple one by one.
+
+### Example
+
+```python
+skills = ("Python", "SQL", "ML")
+
+for skill in skills:
+    print(skill)
+```
+
+### Output
+
+```text
+Python
+SQL
+ML
+```
+
+---
+
+# 7. Tuple Packing
+
+### Definition
+
+Putting multiple values together into a tuple is called tuple packing.
+
+### Example
+
+```python
+student = "Jashwanth", 19, 8.31
+
+print(student)
+```
+
+### Output
+
+```text
+('Jashwanth', 19, 8.31)
+```
+
+Parentheses are optional when creating a tuple through packing.
+
+---
+
+# 8. Single-Item Tuple
+
+### Definition
+
+A comma is required to create a tuple containing only one item.
+
+### Example
+
+```python
+data = ("Python",)
+
+print(type(data))
+```
+
+### Output
+
+```text
+<class 'tuple'>
+```
+
+Without the comma:
+
+```python
+data = ("Python")
+```
+
+This is a string, not a tuple.
+
+---
+
+# 9. Tuple Unpacking
+
+### Definition
+
+Taking values from a tuple and assigning them to separate variables is called tuple unpacking.
+
+### Example
+
+```python
+data = ("Python", "SQL", "ML")
+
+python, sql, ml = data
+
+print(python)
+print(sql)
+print(ml)
+```
+
+### Output
+
+```text
+Python
+SQL
+ML
+```
+
+The position of each value determines which variable receives it.
+
+---
+
+# 10. `count()`
+
+### Definition
+
+`count()` returns how many times a specific value appears in a tuple.
+
+### Syntax
+
+```python
+tuple.count(value)
+```
+
+### Example
+
+```python
+marks = (90, 85, 90, 95)
+
+print(marks.count(90))
+```
+
+### Output
+
+```text
+2
+```
+
+---
+
+# 11. `index()`
+
+### Definition
+
+`index()` returns the index of the first occurrence of a value.
+
+### Syntax
+
+```python
+tuple.index(value)
+```
+
+### Example
+
+```python
+skills = ("Python", "SQL", "ML")
+
+print(skills.index("SQL"))
+```
+
+### Output
+
+```text
+1
+```
+
+---
+
+# 12. `in`
+
+### Definition
+
+`in` checks whether a value exists inside a tuple.
+
+### Example
+
+```python
+skills = ("Python", "SQL", "ML")
+
+print("Python" in skills)
+```
+
+### Output
+
+```text
+True
+```
+
+---
+
+# 13. `not in`
+
+### Definition
+
+`not in` checks whether a value does not exist inside a tuple.
+
+### Example
+
+```python
+skills = ("Python", "SQL", "ML")
+
+print("Java" not in skills)
+```
+
+### Output
+
+```text
+True
+```
+
+---
+
+# 14. Nested Tuples
+
+### Definition
+
+A tuple containing other tuples is called a nested tuple.
+
+### Example
+
+```python
+students = (
+    ("Jashu", 19),
+    ("Siddu", 20),
+    ("Vanam", 21)
+)
+```
+
+### Accessing Nested Values
+
+```python
+print(students[0][0])
+print(students[0][1])
+```
+
+### Output
+
+```text
+Jashu
+19
+```
+
+---
+
+# 15. Searching Inside Nested Tuples
+
+### Definition
+
+A loop can be used to search for a value inside nested tuples.
+
+### Example
+
+```python
+data = (
+    ("Python", 90),
+    ("SQL", 85),
+    ("ML", 95)
+)
+
 count = 0
 
-for item in sequence:
-    if condition:
+for item in data:
+    if "Python" in item:
         count += 1
+
+print(count)
 ```
 
-### Accumulator
+### Output
 
-```python
-total = 0
-
-for number in numbers:
-    total += number
+```text
+1
 ```
 
-### Find largest
+Here, `item` represents each inner tuple.
 
-```python
-largest = numbers[0]
+---
 
-for number in numbers:
-    if number > largest:
-        largest = number
-```
+# 16. List vs Tuple
 
-These patterns are the **foundation for the Python problems you've practiced so far**.
+| List                     | Tuple               |
+| ------------------------ | ------------------- |
+| `[]`                     | `()`                |
+| Mutable                  | Immutable           |
+| Can be changed           | Cannot be changed   |
+| More flexible            | More fixed          |
+| Used for changeable data | Used for fixed data |
+
+
+
+
