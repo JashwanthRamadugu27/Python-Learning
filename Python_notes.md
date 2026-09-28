@@ -2049,6 +2049,619 @@ Here, `item` represents each inner tuple.
 | More flexible            | More fixed          |
 | Used for changeable data | Used for fixed data |
 
+# Day 8 — Sets
+
+## 1. What is a Set?
+
+### Definition
+
+A **set** is a collection of values that:
+
+* Does not allow duplicate values.
+* Is unordered.
+* Can be changed after creation.
+
+### Syntax
+
+```python
+skills = {"Python", "SQL", "ML"}
+```
+
+### Example
+
+```python
+numbers = {10, 20, 30, 20, 10}
+print(numbers)
+```
+
+### Output
+
+```text
+{10, 20, 30}
+```
+
+Duplicate values are automatically removed.
+
+---
+
+## 2. Set vs List vs Tuple
+
+| Type  | Brackets | Ordered             | Duplicates  | Mutable |
+| ----- | -------- | ------------------- | ----------- | ------- |
+| List  | `[]`     | Yes                 | Allowed     | Yes     |
+| Tuple | `()`     | Yes                 | Allowed     | No      |
+| Set   | `{}`     | No guaranteed order | Not allowed | Yes     |
+
+---
+
+## 3. Creating a Set
+
+### Directly
+
+```python
+fruits = {"apple", "banana", "mango"}
+```
+
+### From a List
+
+```python
+fruits = ["apple", "banana", "apple"]
+fruits = set(fruits)
+print(fruits)
+```
+
+### Output
+
+```text
+{'apple', 'banana'}
+```
+
+---
+
+## 4. Adding Items
+
+Use `add()`.
+
+```python
+skills = {"Python", "SQL"}
+
+skills.add("PowerBI")
+
+print(skills)
+```
+
+The new item is added to the set.
+
+---
+
+## 5. Removing Items
+
+### `remove()`
+
+```python
+skills = {"Python", "SQL", "ML"}
+
+skills.remove("SQL")
+print(skills)
+```
+
+Removes the specified item.
+
+If the item does not exist, `remove()` gives an error.
+
+### `discard()`
+
+```python
+skills.discard("Java")
+```
+
+Removes the item if it exists. If it doesn't exist, no error occurs.
+
+### `pop()`
+
+```python
+skills = {"Python", "SQL", "ML"}
+
+skills.pop()
+```
+
+Removes and returns an arbitrary item because sets are unordered.
+
+---
+
+## 6. `in` / `not in`
+
+```python
+skills = {"Python", "SQL", "ML"}
+
+print("Python" in skills)
+print("Java" not in skills)
+```
+
+### Output
+
+```text
+True
+True
+```
+
+---
+
+## 7. `len()` with Sets
+
+```python
+numbers = {10, 20, 30, 20, 40, 10}
+
+print(len(numbers))
+```
+
+### Output
+
+```text
+4
+```
+
+`len()` counts the unique items in the set.
+
+---
+
+## 8. Looping Through a Set
+
+```python
+numbers = {10, 20, 30, 40}
+
+for number in numbers:
+    print(number)
+```
+
+The order of output is not guaranteed.
+
+---
+
+## 9. Union `|`
+
+### Definition
+
+Union combines values from both sets and removes duplicates.
+
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a | b)
+```
+
+### Output
+
+```text
+{1, 2, 3, 4, 5}
+```
+
+---
+
+## 10. Intersection `&`
+
+### Definition
+
+Intersection gives the values that are common in both sets.
+
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a & b)
+```
+
+### Output
+
+```text
+{3}
+```
+
+---
+
+## 11. Difference `-`
+
+### Definition
+
+Difference gives the values that are in the first set but not in the second set.
+
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a - b)
+```
+
+### Output
+
+```text
+{1, 2}
+```
+
+`b - a` would give `{4, 5}`.
+
+---
+
+## 12. Symmetric Difference `^`
+
+### Definition
+
+Gives values that are present in **only one** of the two sets.
+
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a ^ b)
+```
+
+### Output
+
+```text
+{1, 2, 4, 5}
+```
+
+### Quick Revision
+
+```text
+|  → Union → Everything from both
+&  → Intersection → Common values
+-  → Difference → First set only
+^  → Symmetric difference → Only one side
+```
+
+# Day 9 — Dictionaries
+
+## 1. What is a Dictionary?
+
+### Definition
+
+A **dictionary** stores data in **key-value pairs**.
+
+```text
+Key → Value
+```
+
+### Syntax
+
+```python
+student = {
+    "name": "Jashwanth",
+    "age": 19
+}
+```
+
+Here:
+
+* `"name"` → key
+* `"Jashwanth"` → value
+* `"age"` → key
+* `19` → value
+
+---
+
+## 2. Creating a Dictionary
+
+### Using `{}`
+
+```python
+student = {
+    "name": "Jashwanth",
+    "age": 19
+}
+```
+
+### Empty Dictionary
+
+```python
+student = {}
+```
+
+### Using `dict()`
+
+```python
+student = dict(name="Jashwanth", age=19)
+```
+
+---
+
+## 3. Key-Value Pairs
+
+Each dictionary item follows:
+
+```python
+key : value
+```
+
+Example:
+
+```python
+student = {
+    "name": "Jashwanth",
+    "age": 19,
+    "cgpa": 8.31
+}
+```
+
+Keys should normally be unique.
+
+---
+
+## 4. Accessing Values Using Keys
+
+Unlike lists and tuples, dictionaries use **keys instead of indexes**.
+
+```python
+student = {
+    "name": "Jashwanth",
+    "age": 19
+}
+
+print(student["name"])
+print(student["age"])
+```
+
+### Output
+
+```text
+Jashwanth
+19
+```
+
+---
+
+## 5. Adding Items
+
+If the key does not exist, a new item is added.
+
+```python
+student = {
+    "name": "Jashwanth",
+    "age": 19
+}
+
+student["cgpa"] = 8.31
+
+print(student)
+```
+
+---
+
+## 6. Updating Values
+
+If the key already exists, its value is updated.
+
+```python
+student["age"] = 20
+```
+
+The old value is replaced.
+
+### Important
+
+```python
+dictionary["key"] = value
+```
+
+* Existing key → update
+* New key → add
+
+---
+
+## 7. Removing Items
+
+### `pop()`
+
+```python
+student.pop("age")
+```
+
+Removes the item with the specified key.
+
+### `del`
+
+```python
+del student["cgpa"]
+```
+
+Deletes the specified item.
+
+### `clear()`
+
+```python
+student.clear()
+```
+
+Removes all items.
+
+The dictionary becomes:
+
+```text
+{}
+```
+
+---
+
+## 8. `in` / `not in`
+
+In dictionaries, `in` and `not in` check **keys** by default.
+
+```python
+student = {
+    "name": "Jashwanth",
+    "age": 19
+}
+
+print("name" in student)
+print("phone" not in student)
+```
+
+### Output
+
+```text
+True
+True
+```
+
+It checks keys, not values.
+
+---
+
+## 9. Looping Through Dictionary Keys
+
+```python
+student = {
+    "name": "Jashwanth",
+    "age": 19,
+    "cgpa": 8.31
+}
+
+for key in student:
+    print(key)
+```
+
+This prints all the keys.
+
+---
+
+## 10. Looping Through Dictionary Values
+
+Use `values()`.
+
+```python
+for value in student.values():
+    print(value)
+```
+
+This prints all the values.
+
+---
+
+## 11. Looping Through Keys and Values
+
+Use `items()`.
+
+```python
+for key, value in student.items():
+    print(key, value)
+```
+
+This prints both the key and its value.
+
+---
+
+## 12. `len()`
+
+`len()` counts the number of **key-value pairs**.
+
+```python
+student = {
+    "name": "Jashwanth",
+    "age": 19,
+    "cgpa": 8.31
+}
+
+print(len(student))
+```
+
+### Output
+
+```text
+3
+```
+
+---
+
+## 13. `keys()`
+
+Returns all the keys.
+
+```python
+print(student.keys())
+```
+
+---
+
+## 14. `values()`
+
+Returns all the values.
+
+```python
+print(student.values())
+```
+
+---
+
+## 15. `items()`
+
+Returns both keys and values.
+
+```python
+print(student.items())
+```
+
+It is commonly used with loops:
+
+```python
+for key, value in student.items():
+    print(key, value)
+```
+
+---
+
+## 16. `get()`
+
+Used to safely access a value using a key.
+
+```python
+print(student.get("name"))
+```
+
+If the key does not exist:
+
+```python
+print(student.get("phone"))
+```
+
+Output:
+
+```text
+None
+```
+
+Using:
+
+```python
+student["phone"]
+```
+
+when `"phone"` doesn't exist gives a `KeyError`.
+
+---
+
+## Quick Revision — Dictionaries
+
+```text
+Dictionary → Key : Value
+
+student["name"]       → Access value
+student["age"] = 20   → Update value
+student["city"] = ... → Add item
+
+pop()   → Remove one item
+del     → Delete item
+clear() → Remove everything
+
+in / not in → Check keys
+
+keys()   → Keys
+values() → Values
+items()  → Keys + Values
+get()    → Safely access a value
+len()    → Number of key-value pairs
+```
+
 
 
 
