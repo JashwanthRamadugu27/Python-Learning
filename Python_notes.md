@@ -2618,50 +2618,130 @@ Used to safely access a value using a key.
 print(student.get("name"))
 ```
 
-If the key does not exist:
 
-```python
-print(student.get("phone"))
-```
+Day 10 — Functions
+1. What is a Function?
+Definition
 
-Output:
+A function is a reusable block of code used to perform a specific task.
 
-```text
-None
-```
+Syntax
+def function_name():
+    # code
+Example
+def greet():
+    print("Hello")
 
-Using:
+greet()
+2. Creating and Calling a Function
 
-```python
-student["phone"]
-```
+A function is created using def and called using its name.
 
-when `"phone"` doesn't exist gives a `KeyError`.
+def welcome():
+    print("Welcome to Python")
 
----
+welcome()
+Output
+Welcome to Python
+3. Parameters
 
-## Quick Revision — Dictionaries
+A parameter is a variable written inside the function definition.
 
-```text
-Dictionary → Key : Value
+Syntax
+def function_name(parameter):
+    # code
+Example
+def greet(name):
+    print("Hello", name)
 
-student["name"]       → Access value
-student["age"] = 20   → Update value
-student["city"] = ... → Add item
+greet("Jashwanth")
 
-pop()   → Remove one item
-del     → Delete item
-clear() → Remove everything
+Here, name is the parameter.
 
-in / not in → Check keys
+4. Arguments
 
-keys()   → Keys
-values() → Values
-items()  → Keys + Values
-get()    → Safely access a value
-len()    → Number of key-value pairs
-```
+An argument is the actual value passed to a function.
 
+def greet(name):
+    print("Hello", name)
+
+greet("Jashwanth")
+
+Here:
+
+name → parameter
+"Jashwanth" → argument
+5. Multiple Parameters
+
+A function can have multiple parameters.
+
+Syntax
+def function_name(parameter1, parameter2):
+    # code
+Example
+def add(a, b):
+    print(a + b)
+
+add(10, 20)
+Output
+30
+6. return
+
+return sends a value back from the function.
+
+Syntax
+def function_name():
+    return value
+Example
+def add(a, b):
+    return a + b
+
+answer = add(10, 20)
+print(answer)
+Output
+30
+7. print() vs return
+print()
+
+Displays the result.
+
+def add(a, b):
+    print(a + b)
+return
+
+Sends the result back so we can store or use it.
+
+def add(a, b):
+    return a + b
+
+result = add(10, 20)
+8. Default Parameters
+
+A default parameter has a value that is used when no argument is given.
+
+Syntax
+def function_name(parameter="default"):
+    # code
+Example
+def greet(name="Jashwanth"):
+    print("Hello", name)
+
+greet()
+Output
+Hello Jashwanth
+
+If we give an argument, it replaces the default value.
+
+greet("Rahul")
+Output
+Hello Rahul
+Quick Revision
+def        → creates a function
+call       → runs the function
+parameter  → variable inside the function
+argument   → value passed to the function
+return     → sends a value back
+default    → value used when no argument is given
 
 
 
