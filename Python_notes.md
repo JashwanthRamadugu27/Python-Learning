@@ -2618,130 +2618,249 @@ Used to safely access a value using a key.
 print(student.get("name"))
 ```
 
+# Day 10 — Functions
 
-Day 10 — Functions
-1. What is a Function?
-Definition
+## 1. What is a Function?
 
-A function is a reusable block of code used to perform a specific task.
+### Definition
 
-Syntax
+A **function** is a reusable block of code used to perform a specific task.
+
+### Syntax
+
+```python
 def function_name():
     # code
-Example
+```
+
+### Example
+
+```python
 def greet():
     print("Hello")
 
 greet()
-2. Creating and Calling a Function
+```
 
-A function is created using def and called using its name.
+### Output
 
+```text
+Hello
+```
+
+---
+
+## 2. Creating a Function
+
+### Definition
+
+A function is created using the `def` keyword.
+
+### Example
+
+```python
 def welcome():
     print("Welcome to Python")
 
 welcome()
-Output
+```
+
+### Output
+
+```text
 Welcome to Python
-3. Parameters
+```
 
-A parameter is a variable written inside the function definition.
+---
 
-Syntax
-def function_name(parameter):
-    # code
-Example
+## 3. Calling a Function
+
+### Definition
+
+Calling a function means **running the function using its name**.
+
+### Example
+
+```python
+def welcome():
+    print("Welcome to Python")
+
+welcome()
+welcome()
+```
+
+### Output
+
+```text
+Welcome to Python
+Welcome to Python
+```
+
+---
+
+## 4. Parameters
+
+### Definition
+
+A **parameter** is a variable written inside the function definition.
+
+### Example
+
+```python
 def greet(name):
     print("Hello", name)
 
 greet("Jashwanth")
+```
 
-Here, name is the parameter.
+Here, `name` is the parameter.
 
-4. Arguments
+---
 
-An argument is the actual value passed to a function.
+## 5. Arguments
 
+### Definition
+
+An **argument** is the actual value passed to a function.
+
+### Example
+
+```python
 def greet(name):
     print("Hello", name)
 
 greet("Jashwanth")
+```
 
 Here:
 
+```text
 name → parameter
 "Jashwanth" → argument
-5. Multiple Parameters
+```
+
+---
+
+## 6. Multiple Parameters
+
+### Definition
 
 A function can have multiple parameters.
 
-Syntax
-def function_name(parameter1, parameter2):
-    # code
-Example
-def add(a, b):
-    print(a + b)
+### Example
 
-add(10, 20)
-Output
-30
-6. return
+```python
+def student(name, age, course):
+    print(name, age, course)
 
-return sends a value back from the function.
+student("Jashwanth", 20, "AI&ML")
+```
 
-Syntax
-def function_name():
-    return value
-Example
+### Output
+
+```text
+Jashwanth 20 AI&ML
+```
+
+---
+
+## 7. `return`
+
+### Definition
+
+`return` is used to **send a value back from the function**.
+
+### Example
+
+```python
 def add(a, b):
     return a + b
 
 answer = add(10, 20)
 print(answer)
-Output
+```
+
+### Output
+
+```text
 30
-7. print() vs return
-print()
+```
 
-Displays the result.
+---
 
-def add(a, b):
-    print(a + b)
-return
+## 8. Default Parameters
 
-Sends the result back so we can store or use it.
+### Definition
 
-def add(a, b):
-    return a + b
+A **default parameter** has a value that is used when no argument is given.
 
-result = add(10, 20)
-8. Default Parameters
+### Example
 
-A default parameter has a value that is used when no argument is given.
-
-Syntax
-def function_name(parameter="default"):
-    # code
-Example
+```python
 def greet(name="Jashwanth"):
     print("Hello", name)
 
 greet()
-Output
+```
+
+### Output
+
+```text
 Hello Jashwanth
+```
 
-If we give an argument, it replaces the default value.
+If an argument is given, it replaces the default value.
 
+```python
 greet("Rahul")
-Output
+```
+
+### Output
+
+```text
 Hello Rahul
-Quick Revision
+```
+
+---
+
+## 9. `print()` vs `return`
+
+### `print()`
+
+Displays the result on the screen.
+
+```python
+def add(a, b):
+    print(a + b)
+
+add(10, 20)
+```
+
+### `return`
+
+Sends the result back so it can be stored or used later.
+
+```python
+def add(a, b):
+    return a + b
+
+result = add(10, 20)
+print(result)
+```
+
+---
+
+## Quick Revision
+
+```text
 def        → creates a function
 call       → runs the function
 parameter  → variable inside the function
 argument   → value passed to the function
 return     → sends a value back
 default    → value used when no argument is given
+print()    → displays the result
+```
 
 
 
